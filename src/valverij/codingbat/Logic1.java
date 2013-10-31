@@ -60,4 +60,59 @@ public class Logic1 {
 		}
 	}
 	
+	/**
+	 * Given 2 ints, a and b, return their sum. However, sums in the range 10..19 inclusive, 
+	 * are forbidden, so in that case just return 20. 
+	 */
+	public int sortaSum(int a, int b) {
+		int sum = a + b;		
+		return sum >= 10 && sum < 20 ? 20 : sum;
+	}
+	
+	/**
+	 * Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean indicating 
+	 * if we are on vacation, return a string of the form "7:00" indicating when the alarm clock should ring. 
+	 * Weekdays, the alarm should be "7:00" and on the weekend it should be "10:00". Unless we are on vacation --
+	 * then on weekdays it should be "10:00" and weekends it should be "off". 
+	 */
+	public String alarmClock(int day, boolean vacation) {
+		if(day == 0 || day == 6) {
+			return vacation ? "off" : "10:00";
+		}
+		return vacation ? "10:00" : "7:00";
+	}
+	
+	/**
+	 * The number 6 is a truly great number. Given two int values, a and b, return true if either 
+	 * one is 6. Or if their sum or difference is 6. Note: the function Math.abs(num) computes the 
+	 * absolute value of a number 
+	 */
+	public boolean love6(int a, int b) {
+		if(a == 6 || b == 6) {
+			return true;
+		} 
+		else if (a + b == 6 || Math.abs(a - b) == 6) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Given a number n, return true if n is in the range 1..10, inclusive. Unless "outsideMode" is true, 
+	 * in which case return true if the number is less or equal to 1, or greater or equal to 10. 
+	 */
+	public boolean in1To10(int n, boolean outsideMode) {
+		if(outsideMode) {
+			return n <= 1 || n >= 10;
+		}
+		return n >= 1 && n <= 10;
+	}
+	
+	/**
+	 * We'll say a number is special if it is a multiple of 11 or if it is one more than a multiple of 11. 
+	 * Return true if the given non-negative number is special. Use the % "mod" operator 
+	 */
+	public boolean specialEleven(int n) {
+		return n % 11 == 0 || (n - 1) % 11 == 0;
+	}
 }
